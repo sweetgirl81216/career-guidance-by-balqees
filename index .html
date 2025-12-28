@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Guidance | Balqees Afridi</title>
+<style>
+/* ===== GLOBAL STYLES ===== */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
+  background: #f0f4f8;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  z-index: 1000;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ===== HERO SECTION ===== */
+section.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+section.hero::after {
+  content: '';
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.5);
+}
+.hero h1 {
+  font-size: 4em;
+  margin: 0;
+  animation: fadeIn 2s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+.hero p {
+  font-size: 1.5em;
+  margin-top: 15px;
+  position: relative;
+  z-index: 1;
+}
+.hero button {
+  margin-top: 30px;
+  padding: 12px 25px;
+  font-size: 1em;
+  border: none;
+  border-radius: 25px;
+  background: #ff6b6b;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s;
+}
+.hero button:hover {
+  background: #ff4757;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 80px 30px;
+}
+section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #0077b6;
+}
+
+/* ===== CARDS ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+.card:hover {
+  transform: translateY(-10px);
+  background: #f0f8ff;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 2000; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.8); 
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 12px;
+  text-align: center;
+  position: relative;
+}
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: #000;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #0077b6;
+  color: white;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div>Balqees Afridi</div>
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#paths">Career Paths</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div>
+    <button onclick="alert('Sign In clicked')">Sign In</button>
+    <button onclick="alert('Sign Out clicked')">Sign Out</button>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="hero" class="hero">
+  <h1>Balqees Afridi</h1>
+  <p>Guiding You Towards the Right Career Path</p>
+  <button onclick="document.getElementById('paths').scrollIntoView({behavior:'smooth'})">Explore Careers</button>
+</section>
+
+<!-- CAREER PATHS -->
+<section id="paths">
+  <h2>Career Paths</h2>
+  <div class="cards">
+    <div class="card" onclick="openModal('Computer Science','Programming, AI, Web Development, Data Science')">💻 Computer Science</div>
+    <div class="card" onclick="openModal('Biology','Medical, Pharmacy, Research, Biotechnology')">🧬 Biology</div>
+    <div class="card" onclick="openModal('Commerce','Accounting, Finance, Business Management')">📊 Commerce</div>
+    <div class="card" onclick="openModal('Arts & Design','Graphic Design, Fashion, Interior, Fine Arts')">🎨 Arts & Design</div>
+    <div class="card" onclick="openModal('Engineering','Mechanical, Electrical, Civil, Robotics')">🔧 Engineering</div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <h2>Resources & Guidance</h2>
+  <div class="cards">
+    <div class="card">Career Assessment Quiz</div>
+    <div class="card">Colleges & Courses</div>
+    <div class="card">Internship Opportunities</div>
+    <div class="card">Blogs & Articles</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p style="text-align:center;">Email: balqeesafridi@example.com</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Career Guidance Platform | Created by Balqees Afridi
+</footer>
+
+<!-- MODAL -->
+<div id="careerModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDescription"></p>
+  </div>
+</div>
+
+<script>
+function openModal(title, description){
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalDescription').innerText = description;
+  document.getElementById('careerModal').style.display = 'block';
+}
+function closeModal(){
+  document.getElementById('careerModal').style.display = 'none';
+}
+// Close modal if clicked outside
+window.onclick = function(event) {
+  let modal = document.getElementById('careerModal');
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
